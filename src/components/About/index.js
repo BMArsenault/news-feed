@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Post = () => {
+const About = () => {
     return (
-        <section className='about-us container-fluid'>
+        <section className='about-us'>
             <div className='container'>
                 <div className='text-center title'>
                     <h1 id='about'>About Us</h1>
@@ -19,4 +19,4 @@ const Post = () => {
         </section>
     )
 };
-export default Post;
+export default About;

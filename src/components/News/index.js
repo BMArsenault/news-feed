@@ -40,24 +40,25 @@ const News = () => {
     
     return (
         <>
-        <div className='container search'>
+        <div className='search center'>
             <h1>Search the News</h1>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit} className='wrapper'>
                 <input
                 name='searchInput'
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 type='text'
-                placeholder='Search news'/>
+                placeholder='Search'
+                className='search'/>
                 <button type='submit'>Search</button>
             </form>
         </div>
         <div>
-            <h2 className='searched-news'>
+            <div className='searched-news center'>
             {searchedNews.length
-            ? `Viewing ${searchedNews.length} results:`
+            ? `Viewing ${searchedNews.length} results`
             : 'Search news topic to begin'}
-            </h2>
+            </div>
             <section className='card-container'>
                 {searchedNews.map((news) => {
                     return (
@@ -66,14 +67,14 @@ const News = () => {
                         <span className='card-title'>{news.title}</span>
                             <p className='card-text'>{news.description}</p>
                         </div>
+                        <p className='card-date'>Date: {news.date}</p>
                         <div className='card-link'>
                             <a href={news.website}>Read Article</a>
                         </div>
-
                     </div>
                     )
                 }
-                )};
+                )}
             </section>
 
         </div>
