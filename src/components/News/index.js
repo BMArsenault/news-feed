@@ -28,7 +28,7 @@ const News = () => {
                 author: news.author,
                 description: news.description,
                 date: news.publishedAt,
-                url: news.url,
+                website: news.url,
             }));
 
             setSearchedNews(newsData);
@@ -53,12 +53,29 @@ const News = () => {
             </form>
         </div>
         <div>
-            <h2>
+            <h2 className='searched-news'>
             {searchedNews.length
             ? `Viewing ${searchedNews.length} results:`
             : 'Search news topic to begin'}
             </h2>
-            
+            <section className='card-container'>
+                {searchedNews.map((news) => {
+                    return (
+                    <div className='card card-center card-blue'>
+                        <div className='card-content'>
+                        <span className='card-title'>{news.title}</span>
+                            <p className='card-text'>{news.description}</p>
+                        </div>
+                        <div className='card-link'>
+                            <a href={news.website}>Read Article</a>
+                        </div>
+
+                    </div>
+                    )
+                }
+                )};
+            </section>
+
         </div>
 
         </>
